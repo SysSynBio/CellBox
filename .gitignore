@@ -1,3 +1,5 @@
+cellbox_err
+cellbox_out
 tags
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -106,8 +108,8 @@ venv.bak/
 .mypy_cache/
 
 # results
-results/
-configs/*/grid_search
+# results/
+# configs/*/grid_search
 
 # Pycharm
 .idea
