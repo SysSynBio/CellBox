@@ -9,6 +9,7 @@
 #SBATCH --mail-type END
 
 module purge
+module load gcc/11.2.0
 module load python/miniconda22.11
 
 conda activate cellbox
