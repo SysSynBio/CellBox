@@ -6,19 +6,19 @@
   "pert_file": "cyano_rna/cyano_rna_input_pert.csv",
   "expr_file": "cyano_rna/cyano_rna_input_expr.csv",
   "node_index_file": "cyano_rna/cyano_rna_node_index.csv",
-  "n_protein_nodes": 157,
-  "n_activity_nodes": 202,
-  "n_x" : 227,
-  "trainset_ratio": 0.7,
+  "n_protein_nodes": 157,  # protein nodes
+  "n_activity_nodes": 202,  # protein + phenotype
+  "n_x" : 227,   # protein + phenotype + perturbation 
+  "trainset_ratio": 0.7,   
   "validset_ratio": 0.8,
   "batchsize": 4,
   "add_noise_level": 0,
 
-  "envelop_form": "tanh",
-  "dT": 0.1,
-  "envelop":0,
-  "ode_degree": 1,
-  "ode_solver": "heun",
+  "envelop_form": "tanh",  # possibly to change it
+  "dT": 0.1,    # time step
+  "envelop":0,    # 
+  "ode_degree": 1,  # might need to change depends on the results quality
+  "ode_solver": "heun",   # are there better ones? They found "heun" is the best for their purpose 
   "ode_last_steps": 2,
   "l1lambda": 1e-4,
   "l2lambda": 1e-4,
@@ -46,5 +46,5 @@
     ]}],
 
     "export_verbose": 3,
-    "ckpt_name": "model_cellbox_real.ckpt"
+    "ckpt_name": "cyano_rna"
 }
