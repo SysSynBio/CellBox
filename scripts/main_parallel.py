@@ -74,9 +74,10 @@ def run_cellbox(master_args_list):
     cfg.drug_index = None
     cfg.seed = working_index + cfg.seed if hasattr(cfg, "seed") else working_index + 1000
     set_seed(cfg.seed)
-    print(vars(cfg))
+    # print(vars(cfg))
 
     prepare_workdir(cfg)
+    print("Working directory is prepared")
     logger = cellbox.utils.TimeLogger(time_logger_step=1, hierachy=3)
     args = cfg
     for i, stage in enumerate(cfg.stages):
@@ -97,7 +98,7 @@ if __name__ == '__main__':
     master_args_lists = [[master_args.working_index + i, master_args.experiment_config_path] for i in range(master_args.runs_number)]
 
     with Pool(processes=number_of_nodes) as pool:
-        pool.map_async(run_cellbox, master_args_lists)
+        pool.map(run_cellbox, master_args_lists)
         pool.close()
         pool.join()
 
