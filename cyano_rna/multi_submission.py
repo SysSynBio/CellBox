@@ -32,7 +32,7 @@ for dispatch in dispatches:
 
     slurm += "max = 50\n for i in `seq 0 $max`\ndo\n    python scripts/main.py -config=cyano_rna/cyano_rna_config.json -i=$i\ndone\n"
 
-    filename = name + "_rep-" + str(dispatch) + ".sbatch"
+    filename = name + "_rep" + str(dispatch) + ".sbatch"
     with open(filename, 'w') as sbatch:
         sbatch.write(slurm)
 
