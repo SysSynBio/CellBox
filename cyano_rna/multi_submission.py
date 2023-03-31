@@ -24,13 +24,13 @@ extras = [
 slurm = "#!/bin/sh\n#SBATCH -A " + account + "\n#SBATCH -t " + time + "\n#SBATCH -N " + str(node) + "\n#SBATCH -n " + str(core)
 
 for dispatch in dispatches:
-    slurm += "\n#SBATCH -o " + out + '-' + str(dispatch) + "\n#SBATCH -e " + err + '-' + str(dispatch) + "\n#SBATCH --mail-user=" + mail + "\n#SBATCH --mail-type " + "END" + "\n \nmodule purge\n"
+    slurm += "\n#SBATCH -o " + out + '_' + str(dispatch) + ".txt\n#SBATCH -e " + err + '_' + str(dispatch) + ".txt\n#SBATCH --mail-user=" + mail + "\n#SBATCH --mail-type " + "END" + "\n \nmodule purge\n"
     for module in modules:
-        slurm += "module load " + module + '\n'
+        slurm += "module load " + module + '\n \n'
     for extra in extras:
-        slurm += extra + '\n'
+        slurm += extra + '\n \n'
 
-    slurm += "max = 50\n for i in `seq 0 $max`\ndo\n    python scripts/main.py -config=cyano_rna/cyano_rna_config.json -i=$i\ndone\n"
+    slurm += "max = 50\nfor i in `seq 0 $max`\ndo\n    python scripts/main.py -config=cyano_rna/cyano_rna_config.json -i=$i\ndone\n"
 
     filename = name + "_rep" + str(dispatch) + ".sbatch"
     with open(filename, 'w') as sbatch:
