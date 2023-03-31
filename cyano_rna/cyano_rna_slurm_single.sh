@@ -2,7 +2,7 @@
 #SBATCH -A hyperbio
 #SBATCH -t 4-0
 #SBATCH -N 1
-#SBATCH -n 32
+#SBATCH -n 1
 #SBATCH -o cellbox_out
 #SBATCH -e cellbox_err
 #SBATCH --mail-user=song.feng@pnnl.gov
