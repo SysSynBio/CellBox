@@ -1,3 +1,4 @@
+results*
 *.sbatch
 cellbox_err*
 cellbox_out*
