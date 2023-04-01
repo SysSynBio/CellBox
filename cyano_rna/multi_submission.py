@@ -39,5 +39,7 @@ for dispatch in range(dispatch_num):
     filename = name + "_rep" + str(dispatch) + ".sbatch"
     with open(filename, 'w') as sbatch:
         sbatch.write(slurm)
+    submission = "sbatch " + filename 
+    os.system(submission)
 
 
