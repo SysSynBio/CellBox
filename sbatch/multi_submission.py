@@ -1,5 +1,3 @@
-
-
 import os, shutil, sys
 
 name = "cyano_rna_slurm"
@@ -7,7 +5,8 @@ dispatch_num = 20
 loop_num = 50
 
 account = "hyperbio"
-time = "4-0" 
+# time = "1:00:00" 
+time = "3-0" 
 node = '1'
 core = "1" 
 out = "cellbox_out"
