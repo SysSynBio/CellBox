@@ -1,3 +1,4 @@
+*.sbatch
 cellbox_err*
 cellbox_out*
 tags
