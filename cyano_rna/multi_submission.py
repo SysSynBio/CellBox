@@ -6,7 +6,7 @@ name = "cyano_rna_slurm"
 dispatch_num = 20
 loop_num = 50
 
-account = "hyperbio"
+account = "ldrd_cheung2022"
 time = "4-0" 
 node = '1'
 core = "1" 

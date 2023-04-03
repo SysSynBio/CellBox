@@ -4,7 +4,7 @@ name = "cyano_rna_slurm"
 dispatch_num = 20
 loop_num = 50
 
-account = "hyperbio"
+account = "ldrd_cheung2022"
 # time = "1:00:00" 
 time = "3-0" 
 node = '1'

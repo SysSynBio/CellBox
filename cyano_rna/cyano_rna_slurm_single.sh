@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A hyperbio
+#SBATCH -A ldrd_cheung2022
 #SBATCH -t 4-0
 #SBATCH -N 1
 #SBATCH -n 1
