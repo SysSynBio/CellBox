@@ -32,7 +32,7 @@ for dispatch in range(dispatch_num):
     slurm += '\n'
     slurm += workdir + "\n \n"
 
-    slurm += "max=" + str((dispatch + 1) * loop_num - 1) + "\nfor i in `seq " + str(dispatch * loop_num) + " $max`\ndo\n    python scripts/main.py -config=cyano_rna_test/Cellbox_t5/Cellbox_t5.json -i=$i\ndone\n"
+    slurm += "max=" + str((dispatch + 1) * loop_num - 1) + "\nfor i in `seq " + str(dispatch * loop_num) + " $max`\ndo\n    python scripts/main.py -config=cyano_rna_tests/Cellbox_t5/Cellbox_t5.json -i=$i\ndone\n"
 
     filename = name + "_rep" + str(dispatch) + ".sbatch"
     with open(filename, 'w') as sbatch:
