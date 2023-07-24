@@ -23,7 +23,9 @@ slurm_template = "#!/bin/sh\n#SBATCH -A " + account + "\n#SBATCH -t " + time + "
 
 for dispatch in range(dispatch_num):
     slurm = slurm_template
-    slurm += "\n#SBATCH -o " + out + '_' + str(dispatch) + ".txt\n#SBATCH -e " + err + '_' + str(dispatch) + ".txt\n#SBATCH --mail-user=" + mail + "\n#SBATCH --mail-type " + "END" + "\n \nmodule purge\n"
+    slurm += "\n#SBATCH -o " + out + '_' + str(dispatch) + ".txt\n#SBATCH -e " + err + '_' + str(dispatch) + ".txt\n"
+    # slurm += "#SBATCH --mail-user=" + mail + "\n#SBATCH --mail-type END\n"
+    slurm += "\nmodule purge\n"
     for module in modules:
         slurm += "module load " + module + '\n'
     slurm += '\n'
