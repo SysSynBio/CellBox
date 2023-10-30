@@ -11,20 +11,13 @@ import ast
 import warnings
 from matplotlib.lines import Line2D
 
-def PlotFigure2ForRun(index,resultDirectory,trialData,root,noilist):
+def PlotFigure2ForRun(index,resultDirectory,trialData,root,noilist, record_eval_file, node_index_file, model_index, postfix = 'Test', fig_size = [12, 11]):
     
-    loss = pd.read_csv('results/'+str(resultDirectory)+'/seed_'+str(index)+'/record_eval.csv',usecols=range(8),header=None)
-
-    if isinstance(loss.loc[0,0],str):
-        # print('is string')
-        loss = pd.read_csv('results/'+str(resultDirectory)+'/seed_'+str(index)+'/record_eval.csv',usecols=range(8))
-        
-    
-    noi_index = np.genfromtxt(root+'/CorrectedData/'+str(trialData)+'/node_index.csv', 
-                              dtype = str)[noilist]
+    loss = pd.read_csv(record_eval_file,header=None)
+    noi_index = np.genfromtxt(node_index_file, dtype = str)[noilist]
     # Combined plot
-    f, axes = plt.subplots(figsize = [12, 11])
-    plt.title('index')
+    f, axes = plt.subplots(figsize = fig_size)
+    plt.title('Evaluation of the best model in ' + postfix, size = 20)
     # Panel A
     ax = plt.subplot2grid((5, 2), (0, 0), rowspan=2)
     nma = 10
