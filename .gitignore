@@ -1,3 +1,4 @@
+*.ipynb
 *.tar.gz
 *.tar.bz
 sbatch/bak
